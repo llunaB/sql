@@ -1,3 +1,50 @@
+# ORACLE DB
+
+## Oracle Data Type
+
+#### CHAR(n)
+
+- 고정길이 문자 (숫자인 문자열)
+
+#### VARCHAR2(n)
+
+- 가변길이 문자 (문자열)
+
+#### NUMBER(P, S)
+
+- 가변숫자
+
+#### DATE
+
+- 날짜
+
+
+
+## Alias 표현방법 3가지
+
+```sql
+SELECT sal*12 AS "ANNSAL",
+			 sal*12 "ANNSAL",
+			 sal*12 ann_sal
+FROM emp;
+```
+
+
+
+## ORDER BY 표현방법 3가지
+
+```sql
+ORDER BY sal*12 DESC, ename;  # column
+ORDER BY 4 DESC, ename;	# 위치지시자
+ORDER BY "연봉" DESC, ename;	# alias
+```
+
+
+
+---
+
+
+
 # SQL
 
 ## SQL 내부처리 순서
