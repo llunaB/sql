@@ -41,9 +41,98 @@ ORDER BY "연봉" DESC, ename;	# alias
 
 
 
+## NULL 처리
+
+```sql
+SELECT *
+FROM emp
+WHERE ename IS NOT NULL;
+```
+
+
+
 ## Function 
 
+- 단일행
+  - `SUBSTR(문자열, 시작위치, 길이)`
+  - `REPLACE(문자열, '찾을문자', '바꿀문자')`
+  - `CONCAT(문자열 || ' ' || 문자열2) ` => 문자열 사이에 공백만들기
+  - `ROUND(숫자, 자릿수)`
+  - `TRUNC(숫자, 자릿수)`
+  - `SYSDATE`
+  - `NVL(comm, NULL일때)`
+  - `NVL2(comm, NULL 이 아닐때, NULL일때)`
+  - `TO_CHAR(SYSDATE, '원하는 날짜 포맷')`
+  - `TO_DATE`
+  - `TO_NUMBER`
+- 다중행
+  - GROUP BY
+  - ORDER BY
 
+
+
+## CASE의 활용
+
+- 기본형 
+
+```sql
+SELECT CASE WHEN 조건1 THEN 결과1
+            WHEN 조건2 THEN 결과2
+            ELSE 결과3
+       END
+FROM tbl;
+```
+
+- 응용
+
+```sql
+SELECT 기준, 
+			 SUM(CASE WHEN 조건1 THEN 1 ELSE 0 END) 별칭1
+			 SUM(CASE WHEN 조건2 THEN 1 ELSE 0 END) 별칭2
+			 SUM(CASE WHEN 조건3 THEN 1 ELSE 0 END) 별칭3
+FROM tbl
+GROUP BY 기준;
+```
+
+
+
+
+
+
+
+## 문자 표현과 문자 인코딩
+
+### ASCII? UNICODE? 인코딩? UTF-8?
+
+- **아스키 코드란?**
+
+  영문 알파벳을 사용하는 대표적인 문자 코드이다. 
+
+  7비트를 사용한다. (2의 7승)
+
+- **유니코드란?**
+
+​		전 세계의 모든 문자를 컴퓨터에서 일관되게 표현하고 다룰 수 있도록 설계된 표준 코드.
+
+​		2바이트, 16비트를 사용한다. 물론 아스키 코드도 포함한다.
+
+​		2BYTE 로 한글을 표현한다. (range = AC00 ~ D7AF)
+
+- **인코딩 방식이란?**
+
+  컴퓨터가 어떤 문자를 만났을 때, 얼마만큼씩 읽어야 하는지 미리 말해주는 것.
+
+- **UTF-8 이란? (8-bit Unicode Transformation Format)**
+
+  유니코드를 인코딩하여 8비트 숫자의 집합으로 나타내는 방식.
+
+  '문자열 집합과 인코딩 현태를 8비트 단위로 한다!'
+
+  유니코드 한 문자를 나타내기 위해 1~4바이트(가변길이)를 사용한다.
+
+  한글 한 글자는 3BYTE이다.
+
+  왜? ASCII 문자들은 1byte로도 표현이 가능하기 때문이다.
 
 ---
 
