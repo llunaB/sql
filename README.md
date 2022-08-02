@@ -77,9 +77,9 @@ WHERE ename IS NOT NULL;
 
 ```sql
 SELECT CASE WHEN 조건1 THEN 결과1
-            WHEN 조건2 THEN 결과2
-            ELSE 결과3
-       END
+						WHEN 조건2 THEN 결과2
+						ELSE 결과3
+			 END
 FROM tbl;
 ```
 
@@ -87,9 +87,9 @@ FROM tbl;
 
 ```sql
 SELECT 기준, 
-			 SUM(CASE WHEN 조건1 THEN 1 ELSE 0 END) 별칭1
-			 SUM(CASE WHEN 조건2 THEN 1 ELSE 0 END) 별칭2
-			 SUM(CASE WHEN 조건3 THEN 1 ELSE 0 END) 별칭3
+	SUM(CASE WHEN 조건1 THEN 1 ELSE 0 END) 별칭1
+	SUM(CASE WHEN 조건2 THEN 1 ELSE 0 END) 별칭2
+	SUM(CASE WHEN 조건3 THEN 1 ELSE 0 END) 별칭3
 FROM tbl
 GROUP BY 기준;
 ```
@@ -112,7 +112,7 @@ GROUP BY 기준;
 
 - **유니코드란?**
 
-​		전 세계의 모든 문자를 컴퓨터에서 일관되게 표현하고 다룰 수 있도록 설계된 표준 코드.
+​        전 세계의 모든 문자를 컴퓨터에서 일관되게 표현하고 다룰 수 있도록 설계된 표준 코드.
 
 ​		2바이트, 16비트를 사용한다. 물론 아스키 코드도 포함한다.
 
@@ -130,9 +130,11 @@ GROUP BY 기준;
 
   유니코드 한 문자를 나타내기 위해 1~4바이트(가변길이)를 사용한다.
 
+  왜? ASCII 문자들은 1byte로도 표현이 가능하기 때문이다.
+
   한글 한 글자는 3BYTE이다.
 
-  왜? ASCII 문자들은 1byte로도 표현이 가능하기 때문이다.
+  
 
 ---
 
