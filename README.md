@@ -137,9 +137,48 @@ GROUP BY 기준;
 
 ## 집계함수
 
+- COUNT, SUM, MAX, MIN, AVG
+
 ## 분석함수
 
+> 집계함수() OVER(PARTITION BY)
 
+- SUM() OVER(PARTITION BY 기준1, 기준2, ...)
+  - PARTITION BY 는 기준별 합계(그룹과 같은 효과)
+  - 아무것도 안쓰면 전체합계
+- RANK() OVER(PARTITION BY ... ORDER BY ...) 
+  - 특정 ORDER 로 랭킹을 매긴다.
+
+
+
+## JOIN
+
+FK(외래키) 에 인덱스 처리 필수
+
+- JOIN == INNER JOIN
+
+- LEFT JOIN
+
+- OUTER JOIN 
+
+  `WHERE TABLE1.COL1 = TABLE2.COL1(+)`
+
+  `WHERE TABLE1.COL1(+) = TABLE2.COL1`
+
+
+
+## SUBQUERY
+
+- SELECT 절에 들어가는 경우 => 반드시 값을 <하나> 리턴해야
+
+- FROM 절에 들어가는 경우 (INLINE VIEW)
+
+- WHERE 절에 들어가는 경우 
+
+  - 단일행 서브쿼리 ( =, <, > )
+  - 다중행 서브쿼리 (IN)
+
+  
 
 ---
 
