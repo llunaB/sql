@@ -98,6 +98,21 @@ GROUP BY 기준;
 
 ## Join
 
+서브쿼리을 짠 후 JOIN으로 결합한다.
+
+```sql
+SELECT *
+FROM orders o JOIN (SELECT customer_id 
+                    FROM orders
+                    WHERE order_date >= TO_TIMESTAMP('20070501','YYYYMMDD') AND
+                    order_date < TO_TIMESTAMP('20071001','YYYYMMDD')
+                    GROUP BY customer_id
+                    HAVING COUNT(*) >= 2) c
+               ON (o.customer_id = c.customer_id)
+WHERE order_date >= TO_TIMESTAMP('20070501','YYYYMMDD') AND
+      order_date < TO_TIMESTAMP('20071001','YYYYMMDD');
+```
+
 
 
 
